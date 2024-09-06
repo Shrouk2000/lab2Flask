@@ -1,0 +1,20 @@
+{% extends './base.html' %}
+
+<!-- content -->
+{% block content %}
+
+<div class="mb-3 d-flex justify-content-between">
+    <h2>Post Info</h2>
+    <a href="{{ url_for('posts.list') }}" class="btn btn-primary">Back to all Posts</a>
+</div>
+
+<div class="card" style="max-width: 600px; margin: auto;">
+    <img src="{{ post.image_url }}" class="card-img-top" alt="{{ post.name }}">
+    <div class="card-body">
+        <h5 class="card-title">{{ post.name }}</h5>
+        <p class="card-text"><strong>Description:</strong> {{ post.description }}</p>
+        <p class="card-text"><strong>Image URL:</strong> {{ post.image_url }}</p>
+    </div>
+</div>
+
+{% endblock %}

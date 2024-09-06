@@ -1,0 +1,59 @@
+{% extends './base.html' %}
+
+<!-- content -->
+{% block content %}
+
+<div class="mb-3">
+    <a href="{{ url_for('posts.create')}}" class="btn btn-primary"
+        >Add New post</a
+    >
+</div>
+
+<h2>All Posts</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Show</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for post in posts %}
+        <tr>
+            <td>{{post.id}}</td>
+            <td>{{post.name}}</td>
+            <td>{{post.description }}</td>
+            <td>{{post.image}}</td>
+            <td>
+              
+                <a href="{{post.show_url}}" class="btn btn-info">Show</a>
+            </td>
+            <td>
+              
+               
+                <a href="{{post.update_url}}" class="btn btn-success">Update</a>
+            </td>
+            <td>
+                <form action="{{post.delete_url }}" method="POST">
+                    <input
+                        type="submit"
+                        value="Delete"
+                        class="btn btn-danger"
+                    />
+                </form>
+
+            
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

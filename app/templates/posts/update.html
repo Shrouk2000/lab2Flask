@@ -1,0 +1,45 @@
+{% extends './base.html' %}
+
+<!-- content -->
+{% block content %}
+<div>
+    <h1 style="text-align: center">Update Post</h1>
+</div>
+
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input
+            type="text"
+            name="name"
+            class="form-control"
+            value="{{post.name}}"
+        />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">description</label>
+        <input
+            type="text"
+            class="form-control"
+            name="description"
+            value="{{post.description}}"
+        />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Image</label>
+        <input
+            type="text"
+            name="image"
+            class="form-control"
+            value="{{post.image}}"
+        />
+    </div>
+
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="{{ url_for('posts.list') }}" class="btn btn-info">Back</a>
+    </div>
+</form>
+{% endblock %}
